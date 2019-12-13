@@ -58,8 +58,8 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Other variables DO NOT DISABLE edit only.
 #define XMP -11         // X Min Position - distance from the endstop to the bed, adjust nozzle to the front left bed edge at X0.
-#define YMP -4          // Y Min Position - distance from the endstop to the bed, adjust nozzle to the front left bed edge at Y0.
-#define MPE 0           // As needed 30 Max if you have bed clips, if set to large it will cause max X crash.
+#define YMP -5          // Y Min Position - distance from the endstop to the bed, adjust nozzle to the front left bed edge at Y0.
+#define MPE 1           // As needed 30 Max if you have bed clips, if set to large it will cause max X crash.
 #define GRIDSIZE 5      // 5x5 mesh grid adjust as needed.
 #define ZPROBESPEED 120 // Probe speed reduce if accuracy is poor.
 #define G26NOZZLE 1.0   // Nozzle size for G26
@@ -86,4 +86,3 @@
 #else
 #error No steps defined
 #endif
-
