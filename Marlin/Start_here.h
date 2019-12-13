@@ -51,7 +51,29 @@
 //#define CYCLOPST // Enable Cyclops   3 in 1 - Physical Motor Control
 //#define TRIEX    // 3 Extruder       3 in 3 - Physical Motor Control 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------- 
-//Step 5) Adjust XYZE if required, suggest you run your own calibrations.
+//Step 5) enable 1 probe type & edit other bed leveling options.
+#define TOUCHPROBE    // Enable Bltouch Type Probe.
+//#define FMP         // Enable Fixed Mounted Type Probe.
+//#define MANUALBL    // Enable Manual Bed Leveling (stock)
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+//Other variables DO NOT DISABLE edit only.
+#define XMP -11         // X Min Position - distance from the endstop to the bed, adjust nozzle to the front left bed edge at X0.
+#define YMP -4          // Y Min Position - distance from the endstop to the bed, adjust nozzle to the front left bed edge at Y0.
+#define MPE 0           // As needed 30 Max if you have bed clips, if set to large it will cause max X crash.
+#define GRIDSIZE 5      // 5x5 mesh grid adjust as needed.
+#define ZPROBESPEED 120 // Probe speed reduce if accuracy is poor.
+#define G26NOZZLE 1.0   // Nozzle size for G26
+#define G26HOTEND 250   // Hotend temp for G26
+#define G26BED    70    // Bed temp for G26
+
+#if DISABLED (MIX) && DISABLED (CYCLOPS) && DISABLED (DUALEX) && DISABLED (MIXT) && DISABLED (CYCLOPST) && DISABLED (TRIEX)
+#define NPO { -38, 4, 0 } // Nozzle To Probe offset XYZ A10/A20 calibration suggested. 
+#elif ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX) || ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
+#define NPO { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M/A20M calibration suggested.
+#else
+#error No probe offsets defined
+#endif
+
 #if DISABLED (MIX) && DISABLED (CYCLOPS) && DISABLED (DUALEX) && DISABLED (MIXT) && DISABLED (CYCLOPST) && DISABLED (TRIEX)
 #define XYZESTEPS  { 80, 80, 400, 98 }  // ungeared extruder found on a10/a20/a30/i3pro.
 //#define XYZESTEPS  { 80, 80, 2560, 98 } // M8 Z rod steps 2560 found on old I3pro.
@@ -64,26 +86,4 @@
 #else
 #error No steps defined
 #endif
-//-------------------------------------------------------------------------------------------------------------------------------------------------------- 
-//Step 6) enable 1 probe type & edit other bed leveling options.
-#define TOUCHPROBE    // Enable Bltouch Type Probe.
-//#define FMP         // Enable Fixed Mounted Type Probe.
-//#define MANUALBL    // Enable Manual Bed Leveling (stock)
 
-//Other bed leveling variables DO NOT DISABLE edit only.
-#define XMP -11         // X Min Position - distance from the endstop to the bed, adjust nozzle to the front left bed edge at X0.
-#define YMP -4          // Y Min Position - distance from the endstop to the bed, adjust nozzle to the front left bed edge at Y0.
-#define MPE 0           // As needed 30 Max if you have bed clips, if set to large it will cause max X crash .
-#define GRIDSIZE 5      // 5x5 mesh grid adjust as needed.
-#define ZPROBESPEED 120 // Probe speed reduce if accuracy is poor.
-#define G26NOZZLE 1.0   // Nozzle size for G26
-#define G26HOTEND 250   // Hotend temp for G26
-#define G26BED    70    // Bed temp for G26
-#if DISABLED (MIX) && DISABLED (CYCLOPS) && DISABLED (DUALEX) && DISABLED (MIXT) && DISABLED (CYCLOPST) && DISABLED (TRIEX)
-#define NPO { -38, 4, 0 } // Nozzle To Probe offset XYZ A10/A20 calibration suggested. 
-#elif ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX) || ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
-#define NPO { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M/A20M calibration suggested.
-#else
-#error No probe offsets defined
-#endif
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
