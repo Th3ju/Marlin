@@ -1391,7 +1391,7 @@
  */ 
 #define FILAMENT_RUNOUT_SENSOR 
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
-   #if ENABLED (MIXT)
+   #if ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
    #define NUM_RUNOUT_SENSORS   3
    #define FIL_RUNOUT_PIN      66
    #define FIL_RUNOUT2_PIN     67
@@ -1485,7 +1485,7 @@
   // Gradually reduce leveling correction until a set height is reached,
   // at which point movement will be level to the machine's XY plane.
   // The height can be set with M420 Z<height>
-  //#define ENABLE_LEVELING_FADE_HEIGHT //effects part accuracy
+  #define ENABLE_LEVELING_FADE_HEIGHT 
 
   // For Cartesian machines, instead of dividing moves on mesh boundaries,
   // split up moves into short segments like a Delta. This follows the
@@ -1857,7 +1857,7 @@
  *
  * View the current statistics with M78.
  */
-//#define PRINTCOUNTER
+#define PRINTCOUNTER
 
 //=============================================================================
 //============================= LCD and SD support ============================
@@ -2397,7 +2397,7 @@
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
-//#define FAN_SOFT_PWM
+#define FAN_SOFT_PWM
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.

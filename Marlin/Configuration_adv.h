@@ -289,14 +289,14 @@
 
 // The number of consecutive low temperature errors that can occur
 // before a min_temp_error is triggered. (Shouldn't be more than 10.)
-//#define MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED 10
+#define MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED 10
 
 // The number of milliseconds a hotend will preheat before starting to check
 // the temperature. This value should NOT be set to the time it takes the
 // hot end to reach the target temperature, but the time it takes to reach
 // the minimum temperature your thermistor can read. The lower the better/safer.
 // This shouldn't need to be more than 30 seconds (30000)
-//#define MILLISECONDS_PREHEAT_TIME 30000
+#define MILLISECONDS_PREHEAT_TIME 30000
 
 // @section extruder
 
@@ -916,7 +916,7 @@
 #if HAS_LCD_MENU
 
   // Include a page of printer information in the LCD Main Menu
-  //#define LCD_INFO_MENU
+  #define LCD_INFO_MENU
   #if ENABLED(LCD_INFO_MENU)
     //#define LCD_PRINTER_INFO_IS_BOOTSCREEN // Show bootscreen(s) instead of Printer Info pages
   #endif
@@ -2491,12 +2491,12 @@
 /**
  * Auto-report temperatures with M155 S<seconds>
  */
- //#define AUTO_REPORT_TEMPERATURES
+ #define AUTO_REPORT_TEMPERATURES
 
 /**
  * Include capabilities in M115 output
  */
-//#define EXTENDED_CAPABILITIES_REPORT
+#define EXTENDED_CAPABILITIES_REPORT
 
 /**
  * Expected Printer Check
@@ -2591,17 +2591,17 @@
   #define USER_DESC_1 "K0.2"
   #define USER_GCODE_1 "M900 K0.2\nM500"
 
-  #define USER_DESC_2 "K0.4"
-  #define USER_GCODE_2 "M900 K0.4\nM500"
+  #define USER_DESC_2 "K0.3"
+  #define USER_GCODE_2 "M900 K0.3\nM500"
 
-  #define USER_DESC_3 "K0.6"
-  #define USER_GCODE_3 "M900 K0.6\nM500"
+  #define USER_DESC_3 "K0.4"
+  #define USER_GCODE_3 "M900 K0.4\nM500"
   
-  #define USER_DESC_4 "K0.8"
-  #define USER_GCODE_4 "M900 K0.8\nM500"
+  #define USER_DESC_4 "K0.5"
+  #define USER_GCODE_4 "M900 K0.5\nM500"
 
-  #define USER_DESC_5 "K1"
-  #define USER_GCODE_5 "M900 K1\nM500"
+  #define USER_DESC_5 "K0.6"
+  #define USER_GCODE_5 "M900 K0.6\nM500"
 #endif
 
 /**
@@ -2618,7 +2618,7 @@
  * Host Prompt Support enables Marlin to use the host for user prompts so
  * filament runout and other processes can be managed from the host side.
  */
-//#define HOST_ACTION_COMMANDS
+#define HOST_ACTION_COMMANDS
 #if ENABLED(HOST_ACTION_COMMANDS)
   #define HOST_PROMPT_SUPPORT
 #endif
