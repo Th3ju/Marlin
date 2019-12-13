@@ -59,7 +59,7 @@
 #define XYZESTEPS  { 80, 80, 400, 430 } // geared extruder found on M & T variants.
 //#define XYZESTEPS  { 80, 80, 2560,430 } // M8 Z rod steps 2560 found on old I3pro
 #else
-#error No steps selected
+#error No steps defined
 #endif
 //-------------------------------------------------------------------------------------------------------------------------------------------------------- 
 //Step 6) enable 1 probe type & edit other bed leveling options.
@@ -81,6 +81,6 @@
 #elif ENABLED (MIX) && ENABLED (CYCLOPS) && ENABLED (DUALEX) && ENABLED (MIXT) && ENABLED (CYCLOPST) && ENABLED (TRIEX)
 #define NPO { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M/A20M calibration suggested.
 #else
-#error No probe offsets selected
+#error No probe offsets defined
 #endif
 //--------------------------------------------------------------------------------------------------------------------------------------------------------

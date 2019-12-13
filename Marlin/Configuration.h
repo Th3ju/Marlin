@@ -164,7 +164,7 @@
   #elif ENABLED (GTM201)
   #define MOTHERBOARD BOARD_GTM32_REV_B
   #else
-  #error No mainboard selected
+  #error No mainboard defined
   #endif 
 #endif
 
@@ -875,7 +875,7 @@
    #define E1_DRIVER_TYPE
    #define E2_DRIVER_TYPE
    #else
-   #error No drivers selected
+   #error No drivers defined
 #endif
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
@@ -1079,7 +1079,7 @@
 #define PROBE_MANUALLY
 #define MANUAL_PROBE_START_Z 0.2
 #else
-#error No probe selected.
+#error No probe defined
 #endif
 
 /**
