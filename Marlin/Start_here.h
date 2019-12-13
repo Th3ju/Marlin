@@ -22,8 +22,8 @@
 //#define GTD200      // D200 - experimental, set jumpers base on board for flashing and use serial to upload.
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Step 2) enable 1 driver timing set. 
-//#define STOCK     // Enable A4988   on all drivers (stock drivers)
-#define T2208    // Enable TMC2208 Standalone on all drivers
+#define STOCK     // Enable A4988   on all drivers (stock drivers)
+//#define T2208    // Enable TMC2208 Standalone on all drivers
 //#define T2209    // Enable TMC2209 Standalone on all drivers
 //#define T2130    // Enable TMC2130 Standalone on all drivers
 //#define T2160    // Enable TMC2160 Standalone on all drivers
@@ -41,10 +41,10 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Step 3) enable if needed to invert motors direction used on TMC drivers & Geared extruders.
 #define INVERTE     // Invert E direction disabe if wrong direction - M & T variants inverted (stock).
-#define INVERTXYZ   // Invert XYZ direction disable if wrong direction.
+//#define INVERTXYZ   // Invert XYZ direction disable if wrong direction.
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Step 4) enable 1 if you have mixing or multi extruder.
-//#define MIX      // Enable Mixing    2 in 1 - Virtual Motor Control 
+#define MIX      // Enable Mixing    2 in 1 - Virtual Motor Control 
 //#define CYCLOPS  // Enable Cyclops   2 in 1 - Physical Motor Control
 //#define DUALEX   // 2 Extruder       2 in 2 - Physical Motor Control 
 //#define MIXT     // Enable Mixing    3 in 1 - Virtual Motor Control
@@ -55,9 +55,9 @@
 #if DISABLED (MIX) && DISABLED (CYCLOPS) && DISABLED (DUALEX) && DISABLED (MIXT) && DISABLED (CYCLOPST) && DISABLED (TRIEX)
 #define XYZESTEPS  { 80, 80, 400, 98 }  // ungeared extruder found on a10/a20/a30/i3pro.
 //#define XYZESTEPS  { 80, 80, 2560, 98 } // M8 Z rod steps 2560 found on old I3pro.
-#elif ENABLED (MIX) && ENABLED (CYCLOPS) && ENABLED (DUALEX) && ENABLED (MIXT) && ENABLED (CYCLOPST) && ENABLED (TRIEX)
-#define XYZESTEPS  { 80, 80, 400, 430 } // geared extruder found on M & T variants.
-//#define XYZESTEPS  { 80, 80, 2560,430 } // M8 Z rod steps 2560 found on old I3pro
+#elif ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX) || ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
+#define XYZESTEPS  { 80, 80, 400, 430, 430 } // geared extruder found on M & T variants.
+//#define XYZESTEPS  { 80, 80, 2560,430, 430 } // M8 Z rod steps 2560 found on old I3pro
 #else
 #error No steps defined
 #endif
@@ -78,7 +78,7 @@
 #define G26BED    70    // Bed temp for G26
 #if DISABLED (MIX) && DISABLED (CYCLOPS) && DISABLED (DUALEX) && DISABLED (MIXT) && DISABLED (CYCLOPST) && DISABLED (TRIEX)
 #define NPO { -38, 4, 0 } // Nozzle To Probe offset XYZ A10/A20 calibration suggested. 
-#elif ENABLED (MIX) && ENABLED (CYCLOPS) && ENABLED (DUALEX) && ENABLED (MIXT) && ENABLED (CYCLOPST) && ENABLED (TRIEX)
+#elif ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX) || ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
 #define NPO { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M/A20M calibration suggested.
 #else
 #error No probe offsets defined

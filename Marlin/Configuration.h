@@ -914,9 +914,7 @@
  * following movement settings. If fewer factors are given than the
  * total number of extruders, the last value applies to the rest.
  */
-#if ENABLED (DUALEX) || ENABLED (TRIEX)
 #define DISTINCT_E_FACTORS
-#endif
 
 /**
  * Default Axis Steps Per Unit (steps/mm)
