@@ -36,11 +36,10 @@
 //#define L647     // Enable L6470   on all drivers
 //#define T6560    // Enable TB6560  on all drivers
 //#define T6600    // Enable TB6600  on all drivers
-//#define CUSTOM   // Fill in #elif ENABLED (CUSTOM) in configuration.h with a custom set & invert in step 3 as needed
+//#define CUSTOM   // Fill in #elif ENABLED (CUSTOM) in configuration.h with a custom set & invert if needed below
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Step 3) enable if needed to invert motors direction used on TMC drivers & Geared extruders
 #define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
-#define INVERTXYZ   // Invert XYZ direction disable if wrong direction. - Generally used for TMC drivers
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Step 4) enable 1 if you have mixing or multi extruder
 //#define MIX      // Enable Mixing    2 in 1 - Virtual Motor Control 
@@ -86,4 +85,10 @@
 //#define XYZESTEPS  { 80, 80, 2560,430, 430, 430 } // M8 Z rod steps 2560 found on old I3pro
 #else
 #error No steps defined
+#endif
+// This logic should cover tmc/not tmc inverted drivers
+#if ENABLED (T2208) || ENABLED (T2209) || ENABLED (T2130) || ENABLED (T2160) || ENABLED (T26X) || ENABLED (T2660) || ENABLED (T5130) || ENABLED (T5160)
+#define INVERTXYZ   // Invert XYZ direction disable if wrong direction. 
+#elif ENABLED (CUSTOM)
+#define INVERTXYZ   // Invert XYZ direction disable if wrong direction. adjust for custom
 #endif
