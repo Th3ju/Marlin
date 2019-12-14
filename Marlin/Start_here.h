@@ -21,8 +21,8 @@
 //#define GTD200      // D200 - experimental, set jumpers base on board for flashing and use serial to upload
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Step 2) enable 1 driver timing set. 
-#define STOCK     // Enable A4988   on all drivers (stock drivers)
-//#define T2208    // Enable TMC2208 Standalone on all drivers
+//#define STOCK     // Enable A4988   on all drivers (stock drivers)
+#define T2208    // Enable TMC2208 Standalone on all drivers
 //#define T2209    // Enable TMC2209 Standalone on all drivers
 //#define T2130    // Enable TMC2130 Standalone on all drivers
 //#define T2160    // Enable TMC2160 Standalone on all drivers
@@ -41,7 +41,7 @@
 //Step 3) enable 1 if you have mixing or multi extruder
 //#define MIX      // Enable Mixing    2 in 1 - Virtual Motor Control 
 //#define MIXT     // Enable Mixing    3 in 1 - Virtual Motor Control
-#define CYCLOPS  // Enable Cyclops   2 in 1 - Physical Motor Control
+//#define CYCLOPS  // Enable Cyclops   2 in 1 - Physical Motor Control
 //#define CYCLOPST // Enable Cyclops   3 in 1 - Physical Motor Control
 //#define DUALEX   // 2 Extruder       2 in 2 - Physical Motor Control 
 //#define TRIEX    // 3 Extruder       3 in 3 - Physical Motor Control 
@@ -57,12 +57,6 @@
 #define MPE 1              // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max X crash
 #define GRIDSIZE 5         // 5x5 mesh grid adjust as needed
 #define ZPROBESPEED 240    // Probe speed reduce if accuracy is poor
-<<<<<<< HEAD
-=======
-#define G26NOZZLE 1.8      // Nozzle size for G26
-#define G26HOTEND 250      // Hotend temp for G26
-#define G26BED    70       // Bed temp for G26
->>>>>>> ad74c652c352234d45f9dfedd3c867a22bfe5f7b
 #define MAXHOTENDTEMP 260  // Max hotend temp 260
 #define MAXBEDTEMP    110  // Max bed temp 110
 
