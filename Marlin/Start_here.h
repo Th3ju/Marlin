@@ -1,5 +1,5 @@
 #pragma once
-#define SHORT_BUILD_VERSION "B449"
+#define SHORT_BUILD_VERSION "B450"
 
 // =  disabled - remove // enabled
 
@@ -21,8 +21,8 @@
 //#define GTD200      // D200 - experimental, set jumpers base on board for flashing and use serial to upload
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Step 2) enable 1 driver timing set. 
-//#define STOCK     // Enable A4988   on all drivers (stock drivers)
-#define T2208    // Enable TMC2208 Standalone on all drivers
+#define STOCK     // Enable A4988   on all drivers (stock drivers)
+//#define T2208    // Enable TMC2208 Standalone on all drivers
 //#define T2209    // Enable TMC2209 Standalone on all drivers
 //#define T2130    // Enable TMC2130 Standalone on all drivers
 //#define T2160    // Enable TMC2160 Standalone on all drivers
@@ -41,7 +41,7 @@
 //Step 3) enable 1 if you have mixing or multi extruder
 //#define MIX      // Enable Mixing    2 in 1 - Virtual Motor Control 
 //#define MIXT     // Enable Mixing    3 in 1 - Virtual Motor Control
-//#define CYCLOPS  // Enable Cyclops   2 in 1 - Physical Motor Control
+#define CYCLOPS  // Enable Cyclops   2 in 1 - Physical Motor Control
 //#define CYCLOPST // Enable Cyclops   3 in 1 - Physical Motor Control
 //#define DUALEX   // 2 Extruder       2 in 2 - Physical Motor Control 
 //#define TRIEX    // 3 Extruder       3 in 3 - Physical Motor Control 
@@ -57,7 +57,7 @@
 #define MPE 1              // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max X crash
 #define GRIDSIZE 5         // 5x5 mesh grid adjust as needed
 #define ZPROBESPEED 240    // Probe speed reduce if accuracy is poor
-#define G26NOZZLE 1.0      // Nozzle size for G26
+#define G26NOZZLE 1.8      // Nozzle size for G26
 #define G26HOTEND 250      // Hotend temp for G26
 #define G26BED    70       // Bed temp for G26
 #define MAXHOTENDTEMP 260  // Max hotend temp 260
@@ -72,30 +72,31 @@
 #define TMCCHIPS 
 #endif
 
+//Probe offset logic
 #if DISABLED (MULTIEXTRUDER)
 #define NPO { -38, 4, 0 } // Nozzle To Probe offset XYZ A10/A20 calibration suggested 
-#endif
-
-#if ENABLED (MULTIEXTRUDER)
+#elif ENABLED (MULTIEXTRUDER)
 #define NPO { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M/A20M calibration suggested
+#else
+#error Probe offset logic error
 #endif
 
+//Steps selection logic
 #if DISABLED (MULTIEXTRUDER) 
 #define XYZESTEPS  { 80, 80, 400, 98 }  // ungeared extruder found on a10/a20/a30/i3pro
 //#define XYZESTEPS  { 80, 80, 2560, 98 } // M8 Z rod steps 2560 found on old I3pro
-#endif
-
-#if ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX)
+#elif ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX)
 #define XYZESTEPS  { 80, 80, 400, 430, 430 } // geared extruder found on M & T variants
 //#define XYZESTEPS  { 80, 80, 2560,430, 430 } // M8 Z rod steps 2560 found on old I3pro
-#endif 
-
-#if ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
+#elif ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
 #define XYZESTEPS  { 80, 80, 400, 430, 430, 430 } // geared extruder found on M & T variants
 //#define XYZESTEPS  { 80, 80, 2560,430, 430, 430 } // M8 Z rod steps 2560 found on old I3pro
+#else
+#error Steps logic error
 #endif
 
-#if ENABLED (TMCCHIPS) && DISABLED (MULTIEXTRUDER) || ENABLED (MULTIEXTRUDER)
+//Motor direction logic
+#if ENABLED (TMCCHIPS) && DISABLED (MULTIEXTRUDER) || DISABLED (CUSTOM) && ENABLED (MULTIEXTRUDER) 
 #define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
 #endif
 
