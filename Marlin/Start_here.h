@@ -48,11 +48,11 @@
 //#define CYCLOPS  // Enable Cyclops   2 in 1 - Physical Motor Control
 //#define CYCLOPST // Enable Cyclops   3 in 1 - Physical Motor Control
 //#define DUALEX   // 2 Extruder       2 in 2 - Physical Motor Control 
-#define TRIEX    // 3 Extruder       3 in 3 - Physical Motor Control 
+//#define TRIEX    // 3 Extruder       3 in 3 - Physical Motor Control 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------- 
 //Step 5) enable 1 probe type & edit other bed leveling options
-#define MANUALBL    // Enable Manual Bed Leveling (stock)
-//#define TOUCHPROBE    // Enable Bltouch Type Probe.
+//#define MANUALBL    // Enable Manual Bed Leveling (stock)
+#define TOUCHPROBE    // Enable Bltouch Type Probe.
 //#define FMP         // Enable Fixed Mounted Type Probe
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Other variables DO NOT DISABLE edit only.
