@@ -104,6 +104,6 @@
 #endif
 
 #if ENABLED (CUSTOM)
-#define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
+//#define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
 #define INVERTXYZ   // Invert XYZ direction disable if wrong direction. adjust for custom
 #endif
