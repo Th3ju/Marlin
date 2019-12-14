@@ -1,5 +1,5 @@
 #pragma once
-#define SHORT_BUILD_VERSION "B448"
+#define SHORT_BUILD_VERSION "B449"
 
 // =  disabled - remove // enabled
 
@@ -21,8 +21,8 @@
 //#define GTD200      // D200 - experimental, set jumpers base on board for flashing and use serial to upload
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Step 2) enable 1 driver timing set. 
-//#define STOCK     // Enable A4988   on all drivers (stock drivers)
-#define T2208    // Enable TMC2208 Standalone on all drivers
+#define STOCK     // Enable A4988   on all drivers (stock drivers)
+//#define T2208    // Enable TMC2208 Standalone on all drivers
 //#define T2209    // Enable TMC2209 Standalone on all drivers
 //#define T2130    // Enable TMC2130 Standalone on all drivers
 //#define T2160    // Enable TMC2160 Standalone on all drivers
@@ -38,18 +38,15 @@
 //#define T6600    // Enable TB6600  on all drivers
 //#define CUSTOM   // Fill in #elif ENABLED (CUSTOM) in configuration.h with a custom set & invert if needed below
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-//Step 3) enable if needed to invert motors direction used on TMC drivers & Geared extruders
-#define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-//Step 4) enable 1 if you have mixing or multi extruder
+//Step 3) enable 1 if you have mixing or multi extruder
 //#define MIX      // Enable Mixing    2 in 1 - Virtual Motor Control 
 //#define MIXT     // Enable Mixing    3 in 1 - Virtual Motor Control
-//#define CYCLOPS  // Enable Cyclops   2 in 1 - Physical Motor Control
+#define CYCLOPS  // Enable Cyclops   2 in 1 - Physical Motor Control
 //#define CYCLOPST // Enable Cyclops   3 in 1 - Physical Motor Control
 //#define DUALEX   // 2 Extruder       2 in 2 - Physical Motor Control 
 //#define TRIEX    // 3 Extruder       3 in 3 - Physical Motor Control 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------- 
-//Step 5) enable 1 probe type & edit other bed leveling options
+//Step 4) enable 1 probe type & edit other bed leveling options
 //#define MANUALBL    // Enable Manual Bed Leveling (stock)
 #define TOUCHPROBE    // Enable Bltouch Type Probe.
 //#define FMP         // Enable Fixed Mounted Type Probe
@@ -66,29 +63,46 @@
 #define MAXHOTENDTEMP 260  // Max hotend temp 260
 #define MAXBEDTEMP    110  // Max bed temp 110
 
-#if DISABLED (MIX) && DISABLED (CYCLOPS) && DISABLED (DUALEX) && DISABLED (MIXT) && DISABLED (CYCLOPST) && DISABLED (TRIEX)
-#define NPO { -38, 4, 0 } // Nozzle To Probe offset XYZ A10/A20 calibration suggested 
-#elif ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX) || ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
-#define NPO { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M/A20M calibration suggested
-#else
-#error No probe offsets defined
+//logic used to reduce setup steps.
+#if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
+#define MULTIEXTRUDER
 #endif
 
-#if DISABLED (MIX) && DISABLED (CYCLOPS) && DISABLED (DUALEX) && DISABLED (MIXT) && DISABLED (CYCLOPST) && DISABLED (TRIEX)
+#if ANY(T2208, T2209, T2130, T2160, T26X, T2660,  T5130, T5160)
+#define TMCCHIPS 
+#endif
+
+#if DISABLED (MULTIEXTRUDER)
+#define NPO { -38, 4, 0 } // Nozzle To Probe offset XYZ A10/A20 calibration suggested 
+#endif
+
+#if ENABLED (MULTIEXTRUDER)
+#define NPO { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M/A20M calibration suggested
+#endif
+
+#if DISABLED (MULTIEXTRUDER) 
 #define XYZESTEPS  { 80, 80, 400, 98 }  // ungeared extruder found on a10/a20/a30/i3pro
 //#define XYZESTEPS  { 80, 80, 2560, 98 } // M8 Z rod steps 2560 found on old I3pro
-#elif ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX)
+#endif
+
+#if ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX)
 #define XYZESTEPS  { 80, 80, 400, 430, 430 } // geared extruder found on M & T variants
 //#define XYZESTEPS  { 80, 80, 2560,430, 430 } // M8 Z rod steps 2560 found on old I3pro
-#elif ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
+#endif 
+
+#if ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
 #define XYZESTEPS  { 80, 80, 400, 430, 430, 430 } // geared extruder found on M & T variants
 //#define XYZESTEPS  { 80, 80, 2560,430, 430, 430 } // M8 Z rod steps 2560 found on old I3pro
-#else
-#error No steps defined
 #endif
-// This logic should cover tmc/not tmc inverted drivers
-#if ENABLED (T2208) || ENABLED (T2209) || ENABLED (T2130) || ENABLED (T2160) || ENABLED (T26X) || ENABLED (T2660) || ENABLED (T5130) || ENABLED (T5160)
+
+#if ENABLED (TMCCHIPS) && DISABLED (MULTIEXTRUDER) || ENABLED (MULTIEXTRUDER)
+#define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
+#endif
+
+#if ENABLED (TMCCHIPS)
 #define INVERTXYZ   // Invert XYZ direction disable if wrong direction. 
-#elif ENABLED (CUSTOM)
+#endif
+
+#if ENABLED (CUSTOM)
 #define INVERTXYZ   // Invert XYZ direction disable if wrong direction. adjust for custom
 #endif
