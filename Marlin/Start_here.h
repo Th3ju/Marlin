@@ -57,14 +57,16 @@
 //#define FMP         // Enable Fixed Mounted Type Probe
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Other variables DO NOT DISABLE edit only.
-#define XMP -11         // X Min Position - distance from the endstop to the bed, adjust nozzle to the front left bed edge at X0
-#define YMP -5          // Y Min Position - distance from the endstop to the bed, adjust nozzle to the front left bed edge at Y0
-#define MPE 1           // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max X crash
-#define GRIDSIZE 5      // 5x5 mesh grid adjust as needed
-#define ZPROBESPEED 120 // Probe speed reduce if accuracy is poor
-#define G26NOZZLE 1.0   // Nozzle size for G26
-#define G26HOTEND 250   // Hotend temp for G26
-#define G26BED    70    // Bed temp for G26
+#define XMP -11            // X Min Position - distance from the endstop to the bed, adjust nozzle to the front left bed edge at X0
+#define YMP -5             // Y Min Position - distance from the endstop to the bed, adjust nozzle to the front left bed edge at Y0
+#define MPE 1              // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max X crash
+#define GRIDSIZE 5         // 5x5 mesh grid adjust as needed
+#define ZPROBESPEED 240    // Probe speed reduce if accuracy is poor
+#define G26NOZZLE 1.0      // Nozzle size for G26
+#define G26HOTEND 250      // Hotend temp for G26
+#define G26BED    70       // Bed temp for G26
+#define MAXHOTENDTEMP 260  // Max hotend temp 260
+#define MAXBEDTEMP    110  // Max bed temp 110
 
 #if DISABLED (MIX) && DISABLED (CYCLOPS) && DISABLED (DUALEX) && DISABLED (MIXT) && DISABLED (CYCLOPST) && DISABLED (TRIEX)
 #define NPO { -38, 4, 0 } // Nozzle To Probe offset XYZ A10/A20 calibration suggested 

@@ -499,15 +499,13 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define MAXHOTENDTEMP     260       // Max hotend temp 260
-#define MAXBEDTEMP        110       // Max bed temp 110
 #define HEATER_0_MAXTEMP (MAXHOTENDTEMP + 15)
 #define HEATER_1_MAXTEMP (MAXHOTENDTEMP + 15)
 #define HEATER_2_MAXTEMP (MAXHOTENDTEMP + 15)
 #define HEATER_3_MAXTEMP (MAXHOTENDTEMP + 15)
 #define HEATER_4_MAXTEMP (MAXHOTENDTEMP + 15)
 #define HEATER_5_MAXTEMP (MAXHOTENDTEMP + 15)
-#define BED_MAXTEMP      (MAXBEDTEMP + 15)
+#define BED_MAXTEMP      (MAXBEDTEMP + 10)
 
 //===========================================================================
 //============================= PID Settings ================================
