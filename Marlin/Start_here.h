@@ -4,7 +4,7 @@
 // =  disabled - remove // enabled
 
 //Step 1) enable 1 model
-//GT2560 Boards - Mega2560 8bit - Arduino Librarys: U8glib Library required for Step 6 variants
+//GT2560 Boards - vscode: default_envs = megaatmega2560
 #define GTA10       // A10 & Variants - tested working
 //#define GTA20       // A20 & Variants - tested working
 //#define MECREATOR2  // Mecreator2     - tested working
@@ -14,8 +14,7 @@
 //#define I3PROW      // I3PROW         - testing
 //#define I3PROX      // I3PROX         - testing
 
-//GTM32 Boards - STM32F103VE 32bit - Arduino Librarys : https://github.com/rogerclarkmelbourne/Arduino_STM32 & https://github.com/stm32duino/Arduino_Core_STM32 
-//Delete folder /Marlin-bugfix-2.0.x/Marlin/src/HAL/HAL_STM32 & Delete All but SPI.h in Folder Arduino_STM32-master/STM32F1/libraries/SPI/src/
+//GTM32 Boards - vscode: default_envs = STM32F103VE_longer
 //#define GTA30       // A30  - Tested mostly works - set jumpers base on board for flashing and use serial to upload
 //#define GTE180      // E180 - Tested mostly works - set jumpers base on board for flashing and use serial to upload
 //#define GTM201      // M201 - experimental, set jumpers base on board for flashing and use serial to upload
@@ -49,11 +48,11 @@
 //#define CYCLOPS  // Enable Cyclops   2 in 1 - Physical Motor Control
 //#define CYCLOPST // Enable Cyclops   3 in 1 - Physical Motor Control
 //#define DUALEX   // 2 Extruder       2 in 2 - Physical Motor Control 
-//#define TRIEX    // 3 Extruder       3 in 3 - Physical Motor Control 
+#define TRIEX    // 3 Extruder       3 in 3 - Physical Motor Control 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------- 
 //Step 5) enable 1 probe type & edit other bed leveling options
-//#define MANUALBL    // Enable Manual Bed Leveling (stock)
-#define TOUCHPROBE    // Enable Bltouch Type Probe.
+#define MANUALBL    // Enable Manual Bed Leveling (stock)
+//#define TOUCHPROBE    // Enable Bltouch Type Probe.
 //#define FMP         // Enable Fixed Mounted Type Probe
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Other variables DO NOT DISABLE edit only.

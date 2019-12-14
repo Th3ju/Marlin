@@ -916,10 +916,12 @@
 #if HAS_LCD_MENU
 
   // Include a page of printer information in the LCD Main Menu
+  #if DISABLED (GTM201)
   #define LCD_INFO_MENU
   #if ENABLED(LCD_INFO_MENU)
     //#define LCD_PRINTER_INFO_IS_BOOTSCREEN // Show bootscreen(s) instead of Printer Info pages
   #endif
+#endif
 
   // BACK menu items keep the highlight at the top
   #define TURBO_BACK_MENU_ITEM
@@ -1621,7 +1623,7 @@
 // enter the serial receive buffer, so they cannot be blocked.
 // Currently handles M108, M112, M410
 // Does not work on boards using AT90USB (USBCON) processors!
-#if DISABLED (GTA30) && DISABLED (GTE180) && DISABLED (GTM210) && DISABLED (GTD200)
+#if DISABLED (GTA30) && DISABLED (GTE180) && DISABLED (GTM201) && DISABLED (GTD200)
 #define EMERGENCY_PARSER
 #endif
 
