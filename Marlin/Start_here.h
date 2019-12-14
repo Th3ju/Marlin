@@ -36,7 +36,7 @@
 //#define L647     // Enable L6470   on all drivers
 //#define T6560    // Enable TB6560  on all drivers
 //#define T6600    // Enable TB6600  on all drivers
-//#define CUSTOM   // Fill in #elif ENABLED (CUSTOM) in configuration.h with a custom set & invert if needed below
+//#define CUSTOM   // Fill in #elif ENABLED (CUSTOM) in configuration.h with a custom set & invert if needed below #if ENABLED (CUSTOM)
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Step 3) enable 1 if you have mixing or multi extruder
 //#define MIX      // Enable Mixing    2 in 1 - Virtual Motor Control 
@@ -104,5 +104,6 @@
 #endif
 
 #if ENABLED (CUSTOM)
+#define INVERTE     // Invert E direction disabe if wrong direction - M & T variants invert E (stock)
 #define INVERTXYZ   // Invert XYZ direction disable if wrong direction. adjust for custom
 #endif
