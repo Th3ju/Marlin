@@ -4,7 +4,7 @@
 // =  disabled - remove // enabled
 
 //Step 1) enable 1 model
-//GT2560 Boards - vscode: default_envs = megaatmega2560
+//GT2560 Boards - vscode: default_envs = megaatmega2560 in platformio.ini
 #define GTA10       // A10 & Variants - tested working
 //#define GTA20       // A20 & Variants - tested working
 //#define MECREATOR2  // Mecreator2     - tested working
@@ -14,7 +14,7 @@
 //#define I3PROW      // I3PROW         - testing
 //#define I3PROX      // I3PROX         - testing
 
-//GTM32 Boards - vscode: default_envs = STM32F103VE_longer
+//GTM32 Boards - vscode: default_envs = STM32F103VE_longer in platformio.ini
 //#define GTA30       // A30  - Tested mostly works - set jumpers base on board for flashing and use serial to upload
 //#define GTE180      // E180 - Tested mostly works - set jumpers base on board for flashing and use serial to upload
 //#define GTM201      // M201 - experimental, set jumpers base on board for flashing and use serial to upload
