@@ -54,10 +54,7 @@
 
 //Other variables DO NOT DISABLE edit only.
 #define MPE 1              // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max X crash
-#define GRIDSIZE 5         // 5x5 mesh grid adjust as needed
 #define ZPROBESPEED 240    // Probe speed reduce if accuracy is poor
-#define MAXHOTENDTEMP 260  // Max hotend temp 260
-#define MAXBEDTEMP    110  // Max bed temp 110
 
 //logic used to reduce setup steps.
 #if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)

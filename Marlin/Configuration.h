@@ -499,6 +499,8 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
+#define MAXHOTENDTEMP 260  // Max hotend temp 260
+#define MAXBEDTEMP    110  // Max bed temp 110
 #define HEATER_0_MAXTEMP (MAXHOTENDTEMP + 15)
 #define HEATER_1_MAXTEMP (MAXHOTENDTEMP + 15)
 #define HEATER_2_MAXTEMP (MAXHOTENDTEMP + 15)
@@ -1470,6 +1472,8 @@
 //#define AUTO_BED_LEVELING_BILINEAR
 #define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
+
+#define GRIDSIZE 5         // 5x5 mesh grid adjust as needed
 
 /**
  * Normally G28 leaves leveling disabled on completion. Enable
