@@ -51,9 +51,8 @@
 #define TOUCHPROBE    // Enable Bltouch Type Probe.
 //#define FMP         // Enable Fixed Mounted Type Probe
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
+
 //Other variables DO NOT DISABLE edit only.
-#define XMP -11 //0        // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
-#define YMP -5  //0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
 #define MPE 1              // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max X crash
 #define GRIDSIZE 5         // 5x5 mesh grid adjust as needed
 #define ZPROBESPEED 240    // Probe speed reduce if accuracy is poor
@@ -67,6 +66,15 @@
 
 #if ANY(T2208, T2209, T2130, T2160, T26X, T2660,  T5130, T5160)
 #define TMCCHIPS 
+#endif
+
+//Bed offset logic
+#if ANY(GTA10, GTA20, GATG30)
+#define XMP -11 //0        // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
+#define YMP -5  //0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
+#else
+#define XMP 0        // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
+#define YMP 0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
 #endif
 
 //Probe offset logic
