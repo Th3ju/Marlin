@@ -1010,7 +1010,7 @@
    * an option on the LCD screen to continue the print from the last-known
    * point in the file.
    */
-  #if ENABLED (PLR)
+  #if DISABLED (MECREATOR2)
   #define POWER_LOSS_RECOVERY
   #if ENABLED(POWER_LOSS_RECOVERY)
     //#define BACKUP_POWER_SUPPLY       // Backup power / UPS to move the steppers on power loss

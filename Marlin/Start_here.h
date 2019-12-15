@@ -59,7 +59,6 @@
 #define ZPROBESPEED 240    // Probe speed reduce if accuracy is poor
 #define MAXHOTENDTEMP 260  // Max hotend temp 260
 #define MAXBEDTEMP    110  // Max bed temp 110
-//#define PLR              // Power loss resume
 
 //logic used to reduce setup steps.
 #if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
