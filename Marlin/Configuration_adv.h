@@ -1010,6 +1010,7 @@
    * an option on the LCD screen to continue the print from the last-known
    * point in the file.
    */
+  #if ENABLED (PLR)
   #define POWER_LOSS_RECOVERY
   #if ENABLED(POWER_LOSS_RECOVERY)
     //#define BACKUP_POWER_SUPPLY       // Backup power / UPS to move the steppers on power loss
@@ -1024,6 +1025,7 @@
     // especially with "vase mode" printing. Set too high and vases cannot be continued.
     #define POWER_LOSS_MIN_Z_CHANGE 0.05 // (mm) Minimum Z change before saving power-loss data
   #endif
+#endif
 
   /**
    * Sort SD file listings in alphabetical order.
