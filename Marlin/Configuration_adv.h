@@ -426,6 +426,7 @@
 /**
  * M355 Case Light on-off / brightness
  */
+#if ANY(GTA10, GTA20, MECREATOR2)
 #define CASE_LIGHT_ENABLE
 #if ENABLED(CASE_LIGHT_ENABLE)
   #define CASE_LIGHT_PIN 6                    // Override the default pin if needed
@@ -439,6 +440,7 @@
   #if ENABLED(CASE_LIGHT_USE_NEOPIXEL)
     #define CASE_LIGHT_NEOPIXEL_COLOR { 255, 255, 255, 255 } // { Red, Green, Blue, White }
   #endif
+#endif
 #endif
 
 // @section homing
