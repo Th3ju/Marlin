@@ -1010,8 +1010,8 @@
    * an option on the LCD screen to continue the print from the last-known
    * point in the file.
    */
-  #if DISABLED (MECREATOR2)
-  #define POWER_LOSS_RECOVERY
+  
+  //#define POWER_LOSS_RECOVERY
   #if ENABLED(POWER_LOSS_RECOVERY)
     //#define BACKUP_POWER_SUPPLY       // Backup power / UPS to move the steppers on power loss
     //#define POWER_LOSS_ZRAISE       2 // (mm) Z axis raise on resume (on power loss with UPS)
@@ -1025,7 +1025,6 @@
     // especially with "vase mode" printing. Set too high and vases cannot be continued.
     #define POWER_LOSS_MIN_Z_CHANGE 0.05 // (mm) Minimum Z change before saving power-loss data
   #endif
-#endif
 
   /**
    * Sort SD file listings in alphabetical order.
