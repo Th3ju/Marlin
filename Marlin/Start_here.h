@@ -5,9 +5,9 @@
 
 //Step 1) enable 1 model
 //GT2560 Boards - vscode: default_envs = megaatmega2560 in platformio.ini
-#define GTA10       // A10 & Variants - tested working
+//#define GTA10       // A10 & Variants - tested working
 //#define GTA20       // A20 & Variants - tested working
-//#define MECREATOR2  // Mecreator2     - tested working
+#define MECREATOR2  // Mecreator2     - tested working
 //#define I3PROA      // PI3A Pro       - testing
 //#define I3PROB      // I3PROB         - testing
 //#define I3PROC      // I3PROC         - testing
@@ -21,8 +21,8 @@
 //#define GTD200      // D200 - experimental, set jumpers base on board for flashing and use serial to upload
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Step 2) enable 1 driver timing set. 
-//#define STOCK     // Enable A4988   on all drivers (stock drivers)
-#define T2208    // Enable TMC2208 Standalone on all drivers
+#define STOCK     // Enable A4988   on all drivers (stock drivers)
+//#define T2208    // Enable TMC2208 Standalone on all drivers
 //#define T2209    // Enable TMC2209 Standalone on all drivers
 //#define T2130    // Enable TMC2130 Standalone on all drivers
 //#define T2160    // Enable TMC2160 Standalone on all drivers
@@ -47,13 +47,13 @@
 //#define TRIEX    // 3 Extruder       3 in 3 - Physical Motor Control 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------- 
 //Step 4) enable 1 probe type & edit other bed leveling options
-//#define MANUALBL    // Enable Manual Bed Leveling (stock)
-#define TOUCHPROBE    // Enable Bltouch Type Probe.
+#define MANUALBL    // Enable Manual Bed Leveling (stock)
+//#define TOUCHPROBE    // Enable Bltouch Type Probe.
 //#define FMP         // Enable Fixed Mounted Type Probe
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 //Other variables DO NOT DISABLE edit only.
-#define XMP -11            // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
-#define YMP -5             // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
+#define XMP -11 //0        // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
+#define YMP -5  //0        // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
 #define MPE 1              // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max X crash
 #define GRIDSIZE 5         // 5x5 mesh grid adjust as needed
 #define ZPROBESPEED 240    // Probe speed reduce if accuracy is poor
