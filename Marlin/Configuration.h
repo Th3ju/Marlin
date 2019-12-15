@@ -1389,6 +1389,7 @@
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  * By default the firmware assumes HIGH=FILAMENT PRESENT.
  */ 
+#if DISABLED (MECREATOR2)
 #define FILAMENT_RUNOUT_SENSOR 
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
    #if ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
@@ -1424,6 +1425,8 @@
     //#define FILAMENT_MOTION_SENSOR
   #endif
 #endif
+#endif
+
 //===========================================================================
 //=============================== Bed Leveling ==============================
 //===========================================================================
