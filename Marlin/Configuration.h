@@ -1068,14 +1068,16 @@
 #if ENABLED (TOUCHPROBE)
 #define BLTOUCH
 #define Z_MIN_PROBE_REPEATABILITY_TEST
-#elif ENABLED (FMP)
+#endif
+
+#if ENABLED (FMP)
 #define FIX_MOUNTED_PROBE
 #define Z_MIN_PROBE_REPEATABILITY_TEST
-#elif ENABLED (MANUALBL)
+#endif
+
+#if ENABLED (MANUALBL)
 #define PROBE_MANUALLY
 #define MANUAL_PROBE_START_Z 0.2
-#else
-#error No probe defined
 #endif
 
 /**
