@@ -1,5 +1,5 @@
 #pragma once
-#define SHORT_BUILD_VERSION "B450"
+#define SHORT_BUILD_VERSION "B451"
 
 // =  disabled - remove // enabled
 
@@ -55,7 +55,7 @@
 //Other variables DO NOT DISABLE edit only.
 #define MPE 1              // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max X crash
 #define ZPROBESPEED 240    // Probe speed reduce if accuracy is poor
-#define HOMEONBOOT         // Home XYZ at startup (not suggested if unsure motor direction)
+//#define HOMEONBOOT         // Home XYZ at startup (not suggested if unsure motor direction)
 
 //logic used to reduce setup steps.
 #if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
@@ -78,24 +78,26 @@
 //Probe offset logic
 #if DISABLED (MULTIEXTRUDER)
 #define NPO { -38, 4, 0 } // Nozzle To Probe offset XYZ A10/A20 calibration suggested 
-#elif ENABLED (MULTIEXTRUDER)
+#endif
+
+#if ENABLED (MULTIEXTRUDER)
 #define NPO { -40, 0, 0 }  // Nozzle To Probe offset XYZ A10M/A20M calibration suggested
-#else
-#error Probe offset logic error
 #endif
 
 //Steps selection logic
 #if DISABLED (MULTIEXTRUDER) 
 #define XYZESTEPS  { 80, 80, 400, 98 }  // ungeared extruder found on a10/a20/a30/i3pro
 //#define XYZESTEPS  { 80, 80, 2560, 98 } // M8 Z rod steps 2560 found on old I3pro
-#elif ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX)
+#endif
+
+#if ENABLED (MIX) || ENABLED (CYCLOPS) || ENABLED (DUALEX)
 #define XYZESTEPS  { 80, 80, 400, 430, 430 } // geared extruder found on M & T variants
 //#define XYZESTEPS  { 80, 80, 2560,430, 430 } // M8 Z rod steps 2560 found on old I3pro
-#elif ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
+#endif
+
+#if ENABLED (MIXT) || ENABLED (CYCLOPST) || ENABLED (TRIEX)
 #define XYZESTEPS  { 80, 80, 400, 430, 430, 430 } // geared extruder found on M & T variants
 //#define XYZESTEPS  { 80, 80, 2560,430, 430, 430 } // M8 Z rod steps 2560 found on old I3pro
-#else
-#error Steps logic error
 #endif
 
 //Motor direction logic
