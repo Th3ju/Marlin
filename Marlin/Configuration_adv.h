@@ -580,7 +580,7 @@
 #define Z_HOME_BUMP_MM 5
 #define HOMING_BUMP_DIVISOR { 2, 2, 2 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 #define QUICK_HOME                     // If homing includes X and Y, do a diagonal move initially
-//#define HOMING_BACKOFF_MM { X_MIN_POS, Y_MIN_POS, Z_MIN_POS }  // (mm) Move away from the endstops after homing
+//#define HOMING_BACKOFF_MM { X_MIN_POS, Y_MIN_POS, 0 }  // (mm) Move away from the endstops after homing
 
 // When G28 is called, this option will make Y home before X
 #define HOME_Y_BEFORE_X
@@ -720,7 +720,7 @@
 //#define HOME_AFTER_DEACTIVATE  // Require rehoming after steppers are deactivated
 
 // Minimum time that a segment needs to take if the buffer is emptied
-#define DEFAULT_MINSEGMENTTIME        60000   // (ms)
+#define DEFAULT_MINSEGMENTTIME        20000   // (ms)
 
 // If defined the movements slow down when the look ahead buffer is only half full
 #define SLOWDOWN
@@ -2574,7 +2574,9 @@
  *
  * Execute certain G-code commands immediately after power-on.
  */
-//#define STARTUP_COMMANDS "M17 Z"
+#if ENABLED (HOMEONBOOT)
+#define STARTUP_COMMANDS "G28"
+#endif
 
 /**
  * G-code Macros
