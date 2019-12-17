@@ -2599,14 +2599,19 @@
 
   #define USER_DESC_1 "K0.2"
   #define USER_GCODE_1 "M900 K0.2\nM500"
+
   #define USER_DESC_2 "K0.3"
   #define USER_GCODE_2 "M900 K0.3\nM500"
+
   #define USER_DESC_3 "K0.4"
   #define USER_GCODE_3 "M900 K0.4\nM500"
+
   #define USER_DESC_4 "K0.5"
   #define USER_GCODE_4 "M900 K0.5\nM500"
+
   #define USER_DESC_5 "K0.6"
   #define USER_GCODE_5 "M900 K0.6\nM500"
+  
 #endif
 
 /**
