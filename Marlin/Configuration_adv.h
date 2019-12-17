@@ -2571,9 +2571,7 @@
  *
  * Execute certain G-code commands immediately after power-on.
  */
-#if ENABLED (HOMEONBOOT)
-#define STARTUP_COMMANDS "G28"
-#endif
+//#define STARTUP_COMMANDS "G28"
 
 /**
  * G-code Macros

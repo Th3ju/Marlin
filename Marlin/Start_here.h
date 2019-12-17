@@ -55,7 +55,6 @@
 //Other variables DO NOT DISABLE edit only
 #define MPE 1              // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max X crash
 #define ZPROBESPEED 240    // Probe speed reduce if accuracy is poor
-#define HOMEONBOOT         // Home XYZ at startup (not suggested if unsure motor direction)
 
 //logic used to reduce setup steps.
 #if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
