@@ -59,11 +59,11 @@
 
 //logic used to reduce setup steps.
 #if ANY(MIX, MIXT, CYCLOPS, CYCLOPST, DUALEX, TRIEX)
-#define MULTIEXTRUDER
+#define MULTIEXTRUDER 
 #endif
 
 #if ANY(T2208, T2209, T2130, T2160, T26X, T2660,  T5130, T5160)
-#define TMCCHIPS 
+#define TMCCHIPS
 #endif
 
 //Bed offset logic

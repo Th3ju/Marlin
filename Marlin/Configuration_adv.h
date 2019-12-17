@@ -2592,40 +2592,40 @@
  */
 #define CUSTOM_USER_MENUS
 #if ENABLED(CUSTOM_USER_MENUS)
-  #define CUSTOM_USER_MENU_TITLE "Lin Adv Presets"
-  #define USER_SCRIPT_DONE "M117 Set & Saved"
+  #define CUSTOM_USER_MENU_TITLE "Custom Tools"
+  #define USER_SCRIPT_DONE "M500\nM117 Saved"
   #define USER_SCRIPT_AUDIBLE_FEEDBACK
   #define USER_SCRIPT_RETURN  // Return to status screen after a script
 
-  #define USER_DESC_1 "K0.2"
-  #define USER_GCODE_1 "M900 K0.2\nM500"
+  #define USER_DESC_1 "Probe UBL" //Use probe to setup UBL.
+  #define USER_GCODE_1 "G28\nG29 P1 T\nG29 P3 T\nG29 S\nG29 A"
 
-  #define USER_DESC_2 "K0.3"
-  #define USER_GCODE_2 "M900 K0.3\nM500"
+  #define USER_DESC_2 "Manual UBL" //Use nozzle & paper to setup UBL
+  #define USER_GCODE_2 "G28\nG29 P4 R999 T\nG29 S\nG29 A"
 
-  #define USER_DESC_3 "K0.4"
-  #define USER_GCODE_3 "M900 K0.4\nM500"
+  #define USER_DESC_3 "Lin Adv Off"
+  #define USER_GCODE_3 "M900 K0"
 
-  #define USER_DESC_4 "K0.5"
-  #define USER_GCODE_4 "M900 K0.5\nM500"
+  #define USER_DESC_4 "Lin Adv K0.2"
+  #define USER_GCODE_4 "M900 K0.2"
 
-  #define USER_DESC_5 "K0.6"
-  #define USER_GCODE_5 "M900 K0.6\nM500"
+  #define USER_DESC_5 "Lin Adv K0.3"
+  #define USER_GCODE_5 "M900 K0.3"
 
-  #define USER_DESC_6 "K0.7"
-  #define USER_GCODE_6 "M900 K0.7\nM500"
+  #define USER_DESC_6 "Lin Adv K0.4"
+  #define USER_GCODE_6 "M900 K0.4"
 
-  #define USER_DESC_7 "K0.8"
-  #define USER_GCODE_7 "M900 K0.8\nM500"
+  #define USER_DESC_7 "Lin Adv K0.5"
+  #define USER_GCODE_7 "M900 K0.5"
 
-  #define USER_DESC_8 "K0.9"
-  #define USER_GCODE_8 "M900 K0.9\nM500"
+  #define USER_DESC_8 "Lin Adv K0.6"
+  #define USER_GCODE_8 "M900 K0.6"
 
-  #define USER_DESC_9 "K1"
-  #define USER_GCODE_9 "M900 K1\nM500"
+  #define USER_DESC_9 "Lin Adv K0.7"
+  #define USER_GCODE_9 "M900 K0.7"  
 
-  #define USER_DESC_10 "K0 OFF"
-  #define USER_GCODE_10 "M900 K0\nM500"
+  #define USER_DESC_10 "Lin Adv K0.8"
+  #define USER_GCODE_10 "M900 K0.8" 
 
 #endif
 
