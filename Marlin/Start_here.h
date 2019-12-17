@@ -46,13 +46,13 @@
 //#define DUALEX   // 2 Extruder       2 in 2 - Physical Motor Control 
 //#define TRIEX    // 3 Extruder       3 in 3 - Physical Motor Control 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------- 
-//Step 4) enable 1 probe type & edit other bed leveling options
+//Step 4) enable 1 probe type
 //#define MANUALBL    // Enable Manual Bed Leveling (stock)
-#define TOUCHPROBE    // Enable Bltouch Type Probe.
+#define TOUCHPROBE  // Enable Bltouch Type Probe
 //#define FMP         // Enable Fixed Mounted Type Probe
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//Other variables DO NOT DISABLE edit only.
+//Other variables DO NOT DISABLE edit only
 #define MPE 1              // As needed Min:0 Max:30 if you have bed clips, if set to large it will cause max X crash
 #define ZPROBESPEED 240    // Probe speed reduce if accuracy is poor
 #define HOMEONBOOT         // Home XYZ at startup (not suggested if unsure motor direction)
