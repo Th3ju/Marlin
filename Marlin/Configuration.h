@@ -148,24 +148,22 @@
 //#define BLUETOOTH
 
 // Choose the name from boards.h that matches your setup
-#ifndef MOTHERBOARD
-  #if ENABLED (GTA10)
+#ifndef MOTHERBOAR
+#if ENABLED (GTA10)
   #define MOTHERBOARD BOARD_GT2560_V3
-  #elif ENABLED (GTA20)
+#elif ENABLED (GTA20) 
   #define MOTHERBOARD BOARD_GT2560_V3_A20
-  #elif ENABLED (I3PROW) || ENABLED (I3PROA) || ENABLED (I3PROB)  || ENABLED (I3PROC) || ENABLED (I3PROX)  
+#elif ENABLED (I3PROW) || ENABLED (I3PROA) || ENABLED (I3PROB)  || ENABLED (I3PROC) || ENABLED (I3PROX)  
   #define MOTHERBOARD BOARD_GT2560_REV_A_PLUS
-  #elif ENABLED (MECREATOR2)
+#elif ENABLED (MECREATOR2)
   #define MOTHERBOARD BOARD_GT2560_V3_MC2
-  #elif ENABLED (GTA30) || ENABLED (GTD200)
+#elif ENABLED (GTA30) || ENABLED (GTD200)
   #define MOTHERBOARD BOARD_GTM32_MINI_A30
-  #elif ENABLED (GTE180) 
+#elif ENABLED (GTE180) 
   #define MOTHERBOARD BOARD_GTM32_MINI
-  #elif ENABLED (GTM201)
+#elif ENABLED (GTM201)
   #define MOTHERBOARD BOARD_GTM32_REV_B
-  #else
-  #error No mainboard defined
-  #endif 
+ #endif 
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
@@ -349,9 +347,7 @@
 
 #if ENABLED (MIX)
   #define MIXING_STEPPERS 2        // Number of steppers in your mixing extruder
-#endif
-
-#if ENABLED (MIXT)  
+#elif ENABLED (MIXT)  
   #define MIXING_STEPPERS 3        // Number of steppers in your mixing extruder
 #endif
 
@@ -460,9 +456,7 @@
 
 #if ENABLED (DUALEX)
 #define TEMP_SENSOR_1 1
-#endif
-
-#if ENABLED (TRIEX)
+#elif ENABLED (TRIEX)
 #define TEMP_SENSOR_1 1
 #define TEMP_SENSOR_2 1
 #endif
@@ -545,21 +539,15 @@
   #define  DEFAULT_Kp 22.2
   #define  DEFAULT_Ki 1.08
   #define  DEFAULT_Kd 114
-  #endif
-
-  #if ENABLED (I3PROB)
+  #elif ENABLED (I3PROB)
   #define DEFAULT_Kp 12.33
   #define DEFAULT_Ki 0.51
   #define DEFAULT_Kd 74.50
-  #endif
-
-  #if ENABLED (MECREATOR2)
+  #elif ENABLED (MECREATOR2)
   #define  DEFAULT_Kp 14.94
   #define  DEFAULT_Ki 0.74
   #define  DEFAULT_Kd 74.98
-  #endif
-
-  #if ENABLED (MIX) || ENABLED (MIXT) || ENABLED (CYCLOPS) || ENABLED (CYCLOPST)  || ENABLED (DUELEX) || ENABLED (GTA30) || ENABLED (GTE180) || ENABLED (GTD200)
+  #elif ENABLED (MIX) || ENABLED (MIXT) || ENABLED (CYCLOPS) || ENABLED (CYCLOPST)  || ENABLED (DUELEX) || ENABLED (GTA30) || ENABLED (GTE180) || ENABLED (GTD200)
   #define  DEFAULT_Kp 45.8
   #define  DEFAULT_Ki 3.61
   #define  DEFAULT_Kd 145.39
@@ -607,27 +595,19 @@
   #define  DEFAULT_bedKp 10.00
   #define  DEFAULT_bedKi .023
   #define  DEFAULT_bedKd 305.4
-  #endif
-
-  #if ENABLED (I3PROB)
+  #elif ENABLED (I3PROB)
   #define DEFAULT_bedKp 234.88
   #define DEFAULT_bedKi 42.79
   #define DEFAULT_bedKd 322.28
-  #endif
-
-  #if ENABLED (MECREATOR2)
+  #elif ENABLED (MECREATOR2)
   #define  DEFAULT_bedKp 129.40
   #define  DEFAULT_bedKi 25.07
   #define  DEFAULT_bedKd 166.96
-  #endif
-
-  #if ENABLED (GTA30) || ENABLED (GTD200)
+  #elif ENABLED (GTA30) || ENABLED (GTD200)
   #define  DEFAULT_bedKp 369.610
   #define  DEFAULT_bedKi 54.132
   #define  DEFAULT_bedKd 602.870
-  #endif
-
-  #if ENABLED (GTA10) || ENABLED (GTA20)
+  #elif ENABLED (GTA10) || ENABLED (GTA20)
   #define  DEFAULT_bedKp 200.24
   #define  DEFAULT_bedKi 39.43 
   #define  DEFAULT_bedKd 254.26
@@ -703,9 +683,7 @@
 #define USE_ZMIN_PLUG
 #define USE_XMAX_PLUG
 #define USE_YMAX_PLUG
-#endif
-
-#if ENABLED (GTE180)
+#elif ENABLED (GTE180)
 #define USE_ZMAX_PLUG
 #define USE_XMIN_PLUG
 #define USE_YMAX_PLUG
@@ -753,9 +731,7 @@
 #define Y_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Z_MIN_PROBE_ENDSTOP_INVERTING false // set to true to invert the logic of the probe.
-#endif
-
-#if ENABLED (MECREATOR2)
+#elif ENABLED (MECREATOR2)
 #define X_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Z_MIN_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
@@ -795,7 +771,7 @@
   #define E0_DRIVER_TYPE TMC2208_STANDALONE
   #define E1_DRIVER_TYPE TMC2208_STANDALONE
   #define E2_DRIVER_TYPE TMC2208_STANDALONE
-  #endif
+#endif
 
 #if ENABLED (T2209)
    #define X_DRIVER_TYPE TMC2209_STANDALONE
@@ -1121,14 +1097,20 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-#if ENABLED (TOUCHPROBE)
+#if ENABLED (TOUCHPROBE) && DISABLED (GTA30) && DISABLED (GTE180) && DISABLED (GTM201) && DISABLED (GTD200)
 #define BLTOUCH
 #define Z_MIN_PROBE_REPEATABILITY_TEST
+#elif DISABLED (FMP)
+#define PROBE_MANUALLY
+#define MANUAL_PROBE_START_Z 0.2
 #endif
 
-#if ENABLED (FMP)
+#if ENABLED (FMP) && DISABLED (GTA30) && DISABLED (GTE180) && DISABLED (GTM201) && DISABLED (GTD200)
 #define FIX_MOUNTED_PROBE
 #define Z_MIN_PROBE_REPEATABILITY_TEST
+#elif DISABLED (BLTOUCH)
+#define PROBE_MANUALLY
+#define MANUAL_PROBE_START_Z 0.2
 #endif
 
 #if ENABLED (MANUALBL)
@@ -1290,42 +1272,30 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #if ENABLED(I3PROC) && ENABLED(INVERTXYZ)
+#define INVERT_X_DIR true
 #define INVERT_Y_DIR true
-#define INVERT_Z_DIR true
 #define INVERT_Z_DIR false
-#endif
-
-#if ENABLED(MECREATOR2) && ENABLED(INVERTXYZ)
+#elif ENABLED(MECREATOR2) && ENABLED(INVERTXYZ)
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR false
 #define INVERT_Z_DIR false
-#endif
-
-#if ENABLED(GTE180) && ENABLED(INVERTXYZ)
+#elif ENABLED(GTE180) && ENABLED(INVERTXYZ)
 #define INVERT_X_DIR true
 #define INVERT_Y_DIR false
 #define INVERT_Z_DIR true
-#endif
-
-#if ENABLED(GTE180)
+#elif ENABLED(GTE180)
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR true
 #define INVERT_Z_DIR false
-#endif
-
-#if ENABLED (I3PROC)
+#elif ENABLED (I3PROC)
 #define INVERT_X_DIR true
 #define INVERT_Y_DIR false
 #define INVERT_X_DIR false
-#endif
-
-#if ENABLED(MECREATOR2)
+#elif ENABLED(MECREATOR2)
 #define INVERT_X_DIR true
 #define INVERT_Y_DIR true
 #define INVERT_Z_DIR true
-#endif
-
-#if ENABLED(INVERTXYZ)
+#elif ENABLED(INVERTXYZ)
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR false
 #define INVERT_Z_DIR true
@@ -1363,9 +1333,7 @@
 #define X_HOME_DIR 1
 #define Y_HOME_DIR 1
 #define Z_HOME_DIR -1
-#endif
-
-#if ENABLED (GTE180)
+#elif ENABLED (GTE180)
 #define X_HOME_DIR -1
 #define Y_HOME_DIR 1
 #define Z_HOME_DIR 1
@@ -1382,51 +1350,35 @@
 #define X_BED_SIZE 280
 #define Y_BED_SIZE 220
 #define Z_MAX_POS 160
-#endif
-
-#if ENABLED (GTA20)
+#elif ENABLED (GTA20)
 #define X_BED_SIZE 250
 #define Y_BED_SIZE 250
 #define Z_MAX_POS 250
-#endif
-
-#if ENABLED (GTA30)
+#elif ENABLED (GTA30)
 #define X_BED_SIZE 320
 #define Y_BED_SIZE 320
 #define Z_MAX_POS 420
-#endif
-
-#if ENABLED (GTE180)
+#elif ENABLED (GTE180)
 #define X_BED_SIZE 130
 #define Y_BED_SIZE 130
 #define Z_MAX_POS 130
-#endif
-
-#if ENABLED (I3PROW) || ENABLED (I3PROC) || ENABLED (I3PROB) || ENABLED (I3PROA) || ENABLED (I3PROX)
+#elif ENABLED (I3PROW) || ENABLED (I3PROC) || ENABLED (I3PROB) || ENABLED (I3PROA) || ENABLED (I3PROX)
 #define X_BED_SIZE 200
 #define Y_BED_SIZE 200
 #define Z_MAX_POS 180
-#endif
-
-#if ENABLED (I3PROA)
+#elif ENABLED (I3PROA)
 #define X_BED_SIZE 220
 #define Y_BED_SIZE 220
 #define Z_MAX_POS 200
-#endif
-
-#if ENABLED (GTD200)
+#elif ENABLED (GTD200)
 #define X_BED_SIZE 300
 #define Y_BED_SIZE 180 
 #define Z_MAX_POS 180
-#endif
-
-#if ENABLED (MECREATOR2)
+#elif ENABLED (MECREATOR2)
 #define X_BED_SIZE 155
 #define Y_BED_SIZE 165
 #define Z_MAX_POS 155
-#endif
-
-#if ENABLED (GTA10)
+#elif ENABLED (GTA10)
 #define X_BED_SIZE 230
 #define Y_BED_SIZE 230
 #define Z_MAX_POS 250
