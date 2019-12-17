@@ -67,7 +67,7 @@
 #endif
 
 //Bed offset logic
-#if ANY(GTA10, GTA20, GATG30)
+#if ANY(GTA10, GTA20, GTA30)
 #define XMP -11      // X Min Position - distance from endstop to bed, adjust to nozzle front left bed edge X0
 #define YMP -5       // Y Min Position - distance from endstop to bed, adjust to nozzle front left bed edge Y0
 #else
