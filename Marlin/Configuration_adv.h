@@ -2596,10 +2596,10 @@
   #define USER_SCRIPT_RETURN  // Return to status screen after a script
 
   #define USER_DESC_1 "Probe UBL" //Use probe to setup UBL.
-  #define USER_GCODE_1 "G28\nG29 P1 T\nG29 P3 T\nG29 S\nG29 A"
+  #define USER_GCODE_1 "G28\nG29 P1\nG29 P3\nG29 S\nG29 A"
 
   #define USER_DESC_2 "Manual UBL" //Use nozzle & paper to setup UBL
-  #define USER_GCODE_2 "G28\nG29 P4 R999 T\nG29 S\nG29 A"
+  #define USER_GCODE_2 "G28\nG29 P4 R999\nG29 S\nG29 A"
 
   #define USER_DESC_3 "Lin Adv Off"
   #define USER_GCODE_3 "M900 K0"
@@ -2615,15 +2615,6 @@
 
   #define USER_DESC_7 "Lin Adv K0.5"
   #define USER_GCODE_7 "M900 K0.5"
-
-  #define USER_DESC_8 "Lin Adv K0.6"
-  #define USER_GCODE_8 "M900 K0.6"
-
-  #define USER_DESC_9 "Lin Adv K0.7"
-  #define USER_GCODE_9 "M900 K0.7"  
-
-  #define USER_DESC_10 "Lin Adv K0.8"
-  #define USER_GCODE_10 "M900 K0.8" 
 
 #endif
 
