@@ -2612,6 +2612,21 @@
   #define USER_DESC_5 "K0.6"
   #define USER_GCODE_5 "M900 K0.6\nM500"
 
+  #define USER_DESC_6 "K0.7"
+  #define USER_GCODE_6 "M900 K0.7\nM500"
+
+  #define USER_DESC_7 "K0.8"
+  #define USER_GCODE_7 "M900 K0.8\nM500"
+
+  #define USER_DESC_8 "K0.9"
+  #define USER_GCODE_8 "M900 K0.9\nM500"
+
+  #define USER_DESC_9 "K1"
+  #define USER_GCODE_9 "M900 K1\nM500"
+
+  #define USER_DESC_10 "K0 OFF"
+  #define USER_GCODE_10 "M900 K0\nM500"
+
 #endif
 
 /**
